@@ -1,11 +1,15 @@
-<nav class="navbar">
-<div class="navbar-logo">
-</div>
-<ul>
-<li><a routerLink="/">Home</a></li>
-<li><a routerLink="/atenei">Atenei</a></li>
-<li><a routerLink="/dipartimenti">Dipartimenti</a></li>
-<li><a routerLink="/corsi">Corsi</a></li>
-<li><a routerLink="/studenti">Studenti2</a></li>
-</ul>
-</nav>
+<header>
+  <h1>Mini Segreteria Universitaria</h1>
+
+  <nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/atenei">Atenei</a>
+    <a routerLink="/dipartimenti">Dipartimenti</a>
+    <a routerLink="/corsi">Corsi</a>
+    <a routerLink="/studenti">Studenti</a>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

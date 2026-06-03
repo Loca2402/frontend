@@ -1,27 +1,23 @@
-
-import { Component, OnInit} from '@angular/core'; 
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Health } from './services/health';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  selector: 'app-home',
+  imports: [],
+  templateUrl: './home.html',
+  styleUrl: './home.css'
 })
-export class App implements OnInit {
+export class HomeComponent implements OnInit {
   backendStatus = 'non verificato';
 
-  constructor(
-    private health: Health,
-  ) {}
+  constructor(private health: Health) {}
 
   ngOnInit(): void {
     this.health.checkHealth().subscribe({
-      next: (response) => {
+      next: (response: any) => {
         console.log('risposta backend:', response);
-          this.backendStatus = response['STATUS']; 
-        },
+        this.backendStatus = response['STATUS'] ?? response.status ?? 'non verificato';
+      },
       error: () => {
         this.backendStatus = 'Errore collegamento backend';
       }
