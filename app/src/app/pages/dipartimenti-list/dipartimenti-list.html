@@ -1,0 +1,25 @@
+<div>
+    <h1>Dipartimenti Universitari</h1>
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Codice</th>
+            <th>Nome Dipartimento</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (dipartimento of listaDipartimenti; track dipartimento.id) {
+            <tr>
+                <td>{{dipartimento.id}}</td>
+                <td>{{dipartimento.codice}}</td>
+                <td>{{dipartimento.nome}}</td>
+            </tr>
+        } @empty {
+            <tr>
+            <td colspan="4" align="center">NESSUN DIPARTIMENTO TROVATO.</td>
+            </tr>
+        }
+    </tbody>
+    </table>
+</div>

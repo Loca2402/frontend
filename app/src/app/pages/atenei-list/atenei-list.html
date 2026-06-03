@@ -1,0 +1,27 @@
+<div>
+    <h1>Atenei Universitari</h1>
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Codice</th>
+            <th>Nome Ateneo</th>
+            <th>Citta</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (ateneo of listaAtenei; track ateneo.ateneoId) {
+            <tr>
+                <td>{{ateneo.ateneoId}}</td>
+                <td>{{ateneo.codice}}</td>
+                <td>{{ateneo.nome}}</td>
+                <td>{{ateneo.citta}}</td>
+            </tr>
+        } @empty {
+            <tr>
+            <td colspan="4" align="center">NESSUN ATENEO TROVATO.</td>
+            </tr>
+        }
+    </tbody>
+    </table>
+</div>
