@@ -1,0 +1,65 @@
+#codice, #nome, #citta {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  color: #334155;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+#codice:focus, #nome:focus, #citta:focus {
+  outline: none;                      
+  border-color: #0ea5e9;              
+  background-color: #ffffff;          
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15); 
+}
+
+
+label {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+
+button[type="submit"] {
+  background-color: #0ea5e9;
+  color: #ffffff;
+  border: none;              
+  padding: 10px 20px;        
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;           
+}
+
+button[type="submit"] {
+  background-color: #0284c7; 
+}
+
+button[type="submit"]:disabled {
+  background-color: #94a3b8; 
+  cursor: not-allowed;      
+}
+
+a[routerLink="/atenei"] {
+  display: inline-block;     
+  color: #64748b;           
+  text-decoration: none;     
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+a[routerLink="/atenei"] {
+  color: #ffffff;            
+  background-color: #e11919; 
+  
+}

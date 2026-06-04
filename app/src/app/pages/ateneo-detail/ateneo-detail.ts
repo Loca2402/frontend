@@ -2,12 +2,13 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-atenei-detail',
-  imports: [CommonModule],
-  templateUrl: './atenei-detail.html',
-  styleUrl: './atenei-detail.css',
+  imports: [CommonModule, RouterLink],
+  templateUrl: './ateneo-detail.html',
+  styleUrl: './ateneo-detail.css',
 })
 export class AteneoDetailComponent implements OnInit {
   ateneo:any=null;
@@ -18,8 +19,8 @@ export class AteneoDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const ateneoId = this.route.snapshot.paramMap.get('ateneoId');
-    this.http.get<any>("http://localhost:8080/api/atenei/{ateneoId}").subscribe({
+    const ateneoId = this.route.snapshot.paramMap.get('ateneoId'); 
+    this.http.get<any>(`http://localhost:8080/api/atenei/${ateneoId}`).subscribe({
       next:(response) => 
         {console.log(response);
 

@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-atenei-list',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './atenei-list.html',
   styleUrl: './atenei-list.css',
 })
@@ -12,7 +13,7 @@ export class AteneiListComponent implements OnInit {
   listaAtenei:any[]=[];
   constructor(
     private http:HttpClient,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {

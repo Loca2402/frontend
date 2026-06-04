@@ -1,6 +1,8 @@
 <div class="table-container">
     <h2> Elenco Atenei Universitari</h2>
 
+    <a routerLink="/atenei/nuovo" class="btn-add"> Aggiungi +</a>
+
     <table class="custom-table">
     <thead>
         <tr>
@@ -15,10 +17,11 @@
             <tr>
                 <td class="id-column">{{ateneo.ateneoId}}</td>
                 <td class="code-badge"><span>{{ateneo.codice}}</span></td>
-                <td class="main-text">{{ateneo.nome}}</td>
+                <a [routerLink]="['/atenei',ateneo.ateneoId]"><td class="main-text">{{ateneo.nome}}</td></a>
                 <td class="main-text">{{ateneo.citta}}</td>
             </tr>
-        } @empty {
+        } 
+        @empty {
             <tr>
                 <td colspan="4" class="empty-row">Nessun ateneo trovato nel database.</td>
             </tr>

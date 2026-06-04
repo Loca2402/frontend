@@ -1,0 +1,23 @@
+<section>
+  <h2>Dettaglio Ateneo</h2>
+
+  @if (ateneo) {
+    <div>
+      <p><strong>ID:</strong> {{ ateneo.ateneoId }}</p>
+      <p><strong>Codice:</strong> {{ ateneo.codice }}</p>
+      <p><strong>Nome:</strong> {{ ateneo.nome }}</p>
+      <p><strong>Città:</strong> {{ ateneo.citta }}</p>
+      
+      <p><strong>Dipartimenti associati:</strong></p>
+      <ul>
+        @for (dip of ateneo.dipartimenti; track dip.dipartimentoId) {
+          <li>{{ dip.nome }} (Codice: {{ dip.codice }})</li>
+        } @empty {
+          <li>Nessun dipartimento presente per questo ateneo.</li>
+        }
+      </ul>
+    </div>
+  }
+
+  <a routerLink="/atenei">Torna alla lista atenei</a>
+</section>

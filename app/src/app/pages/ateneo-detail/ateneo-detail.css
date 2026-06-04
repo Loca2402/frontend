@@ -1,0 +1,84 @@
+
+section {
+  padding: 40px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc; 
+  min-height: 100vh;
+}
+
+
+h2 {
+  color: #0ea5e9; 
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+section > div {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border-left: 6px solid #0ea5e9; 
+  margin-bottom: 30px;
+  max-width: 800px; 
+}
+
+
+section p {
+  font-size: 1.05rem;
+  color: #334155;
+  margin: 0 0 15px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1f5f9; 
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+section p strong {
+  color: #475569;
+  min-width: 100px; 
+  display: inline-block;
+}
+
+
+section p:nth-last-of-type(1) {
+  border-bottom: none;
+  margin-top: 25px;
+  font-size: 1.2rem;
+  color: #1e293b;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+ul li {
+  background-color: #f1f5f9; 
+  color: #0f172a;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+
+a[routerLink="/atenei"] {
+  display: inline-block;
+  color: #0ea5e9;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+a[routerLink="/atenei"]:hover {
+  color: #0284c7; 
+}

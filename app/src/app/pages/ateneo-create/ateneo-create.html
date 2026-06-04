@@ -1,0 +1,58 @@
+<section>
+  <h2>Nuovo Ateneo</h2>
+
+  @if (errore) {
+  <p style="color: red;">
+    {{ errore }}
+  </p>
+}
+
+  <form (ngSubmit)="salva()">
+    <div>
+      <label for="codice">Codice</label><br>
+      <input
+        id="codice"
+        type="text"
+        name="codice"
+        [(ngModel)]="ateneo.codice"
+        placeholder="Es. RM01"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="nome">Nome</label><br>
+      <input
+        id="nome"
+        type="text"
+        name="nome"
+        [(ngModel)]="ateneo.nome"
+        placeholder="Es. Università di Roma"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="citta">Città</label><br>
+      <input
+        id="citta"
+        type="text"
+        name="citta"
+        [(ngModel)]="ateneo.citta"
+        placeholder="Es. Roma"
+      />
+    </div>
+
+    <br>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Salvataggio...' : 'Salva' }}
+    </button>
+
+    <a routerLink="/atenei" style="margin-left: 12px;">
+      Annulla
+    </a>
+  </form>
+</section>
