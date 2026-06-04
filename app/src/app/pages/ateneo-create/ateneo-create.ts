@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // 👈 Ci serve solo questo modulo per i form semplici!
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-ateneo-create',
-  // Sostituiamo il vecchio modulo complicato con il FormsModule base
   imports: [CommonModule, RouterLink, FormsModule], 
   templateUrl: './ateneo-create.html',
   styleUrl: './ateneo-create.css',
