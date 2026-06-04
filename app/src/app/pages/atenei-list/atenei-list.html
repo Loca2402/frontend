@@ -1,25 +1,26 @@
-<div>
-    <h1>Atenei Universitari</h1>
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
+<div class="table-container">
+    <h2> Elenco Atenei Universitari</h2>
+
+    <table class="custom-table">
     <thead>
         <tr>
             <th>ID</th>
             <th>Codice</th>
             <th>Nome Ateneo</th>
-            <th>Citta</th>
+            <th>Città</th>
         </tr>
     </thead>
     <tbody>
         @for (ateneo of listaAtenei; track ateneo.ateneoId) {
             <tr>
-                <td>{{ateneo.ateneoId}}</td>
-                <td>{{ateneo.codice}}</td>
-                <td>{{ateneo.nome}}</td>
-                <td>{{ateneo.citta}}</td>
+                <td class="id-column">{{ateneo.ateneoId}}</td>
+                <td class="code-badge"><span>{{ateneo.codice}}</span></td>
+                <td class="main-text">{{ateneo.nome}}</td>
+                <td class="main-text">{{ateneo.citta}}</td>
             </tr>
         } @empty {
             <tr>
-            <td colspan="4" align="center">NESSUN ATENEO TROVATO.</td>
+                <td colspan="4" class="empty-row">Nessun ateneo trovato nel database.</td>
             </tr>
         }
     </tbody>

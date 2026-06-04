@@ -1,0 +1,135 @@
+/* Contenitore principale */
+.dashboard-container {
+  padding: 40px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Intestazione bianca in alto */
+.dashboard-header {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h2 {
+  color: #1e293b;
+  margin: 0 0 5px 0;
+  font-size: 2rem;
+}
+
+.dashboard-header p {
+  color: #64748b;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Box dello stato backend */
+.status-box {
+  background-color: #f1f5f9;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.status-label {
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.status-value {
+  font-weight: bold;
+  color: #10b981;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+/* Griglia delle card */
+.cards-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Stile base riutilizzabile per TUTTE le card */
+.card h2 {
+  background-color: #dedede;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  min-width: 230px;
+}
+
+.card h3 {
+  color: #1e293b;
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+}
+
+.card p {
+  color: #64748b;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Bordi colorati specifici per ogni tipo di card */
+.card-atenei {
+  border-top: 4px solid #3b82f6; /* Blu */
+}
+
+.card-dipartimenti {
+  border-top: 4px solid #10b981; /* Verde */
+}
+
+.card-corsi {
+  border-top: 4px solid #f59e0b; /* Arancione */
+}
+
+.card-studenti {
+  border-top: 4px solid #8b5cf6; /* Viola */
+}
+
+
+.status-up {
+  border-left: 4px solid #10b981; /* Bordo Verde */
+  color: #10b981; /* Testo Verde */
+  font-weight: bold;
+  text-transform: uppercase;
+  border-left: 4px solid #10b981;
+}
+
+.status-down {
+  border-left: 4px solid #ef4444; /* Bordo Rosso */
+  color: #ef4444; /* Testo Rosso */
+  font-weight: bold;
+  text-transform: uppercase;
+  border-left: 4px solid #ef4444;
+}
+
+.dashboard-container {
+  padding: 40px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #a4969675; 
+  min-height: 100vh;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box; 
+}
+.card {
+  background-color: #ffffff; 
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); /* Ombra leggermente più marcata */
+  flex: 1;
+  min-width: 230px;
+}

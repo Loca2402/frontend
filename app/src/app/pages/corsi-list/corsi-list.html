@@ -1,1 +1,33 @@
-<p>corsi-list works!</p>
+<div class="table-container">
+    <h1>Corsi Universitari</h1>
+    <table class="custom-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Codice</th>
+            <th>Nome Corso</th>
+            <th>Anno Accademico</th>
+            <th>Tipo Titolo</th>
+            <th>Dipartimento</th>
+            <th>Ateneo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (corso of listaCorsi; track corso.idCorso) {
+            <tr>
+                <td class="id-column">{{corso.idCorso}}</td>
+                <td class="code-badge"><span>{{corso.codice}}</span></td>
+                <td class="main-text">{{corso.nome}}</td>
+                <td class="code-badge"><span>{{corso.annoAccademico}}</span></td>
+                <td class="main-text">{{corso.tipoTitolo}}</td>
+                <td class="main-text">{{corso.dipartimento.nome}}</td>
+                <td class="main-text">{{corso.ateneo.nome}}</td>
+            </tr>
+        } @empty {
+            <tr>
+            <td colspan="4" class="empty-row">NESSUN CORSO TROVATO.</td>
+            </tr>
+        }
+    </tbody>
+    </table>
+</div>

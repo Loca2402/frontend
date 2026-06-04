@@ -1,25 +1,41 @@
-<section>
-  <h2>Home</h2>
-
-  <p>Stato backend: {{ backendStatus }}</p>
-
-  <div>
-    <h3>Atenei</h3>
-    <p>Gestione degli atenei.</p>
+<section class="dashboard-container">
+  
+  <div class="dashboard-header">
+    <div>
+      <h2>Home</h2>
+      <p>Benvenuto nel sistema di gestione della segreteria universitaria.</p>
+    </div>
+    
+    <div class="status-box">
+      <span class="status-label">Stato backend: </span>
+      <span [ngClass]="backendStatus === 'UP' ? 'status-up' : 'status-down'">
+    {{ backendStatus }}
+  </span>
+    </div>
   </div>
 
-  <div>
-    <h3>Dipartimenti</h3>
-    <p>Gestione dei dipartimenti universitari.</p>
+  <div class="cards-grid">
+    
+    <div class="card card-atenei">
+      <h3>Atenei</h3>
+      <p>Gestione degli atenei.</p>
+    </div>
+
+    <div class="card card-dipartimenti">
+      <h3>Dipartimenti</h3>
+      <p>Gestione dei dipartimenti universitari.</p>
+    </div>
+
+    <div class="card card-corsi">
+      <h3>Corsi</h3>
+      <p>Gestione dei corsi di studio.</p>
+    </div>
+
+    <div class="card card-studenti">
+      <h3>Studenti</h3>
+      <p>Gestione degli studenti.</p>
+    </div>
+
   </div>
 
-  <div>
-    <h3>Corsi</h3>
-    <p>Gestione dei corsi di studio.</p>
-  </div>
-
-  <div>
-    <h3>Studenti</h3>
-    <p>Gestione degli studenti.</p>
-  </div>
 </section>

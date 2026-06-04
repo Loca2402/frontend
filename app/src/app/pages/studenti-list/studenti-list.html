@@ -1,1 +1,27 @@
-<p>studenti-list works!</p>
+<div class="table-container">
+    <h1>Lista Studenti</h1>
+    <table  class="custom-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Matricola</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (studente of listaStudenti; track studente.id) {
+            <tr>
+                <td class="id-column">{{studente.id}}</td>
+                <td class="code-badge"><span>{{studente.matricola}}</span></td>
+                <td class="main-text">{{studente.nome}}</td>
+                <td class="main-text">{{studente.cognome}}</td>
+            </tr>
+        } @empty {
+            <tr>
+            <td colspan="4" class="empty-row">NESSUNO STUDENTE TROVATO.</td>
+            </tr>
+        }
+    </tbody>
+    </table>
+</div>

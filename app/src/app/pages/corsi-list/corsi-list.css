@@ -1,0 +1,93 @@
+/* Contenitore della pagina */
+.table-container {
+  padding: 40px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc; /* Lo stesso grigio-azzurro della home */
+  min-height: 100vh;
+}
+
+.table-container h2 {
+  color: #1e293b;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+/* Stile Generale della Tabella */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse; /* Elimina il doppio bordo brutto delle vecchie tabelle */
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden; /* Taglia gli angoli rigidi per seguire l'arrotondamento */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Stile dell'Intestazione (I titoli in alto) */
+.custom-table thead {
+  background-color: #1e293b; /* Blu scuro aziendale coordinato con la navbar */
+}
+
+.custom-table th {
+  color: #ffffff;
+  text-align: left;
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Stile delle Celle dei Dati */
+.custom-table td {
+  padding: 16px 20px;
+  color: #334155;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #f1f5f9; /* Linea di divisione sottilissima e chiara */
+}
+
+/* 🌟 EFFETTO EFFETTO RIGHE ALTERNATE (Zebra stripes) */
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f8fafc; /* Le righe pari hanno uno sfondo leggermente grigio */
+}
+
+/* 🌟 EFFETTO HOVER: La riga si evidenzia quando ci passi sopra */
+.custom-table tbody tr:hover {
+  background-color: #f1f5f9;
+  transition: background-color 0.2s ease;
+}
+
+/* Dettagli di stile per colonne specifiche */
+.id-column {
+  font-weight: bold;
+  color: #64748b; /* ID leggermente più spento per dare importanza al nome */
+}
+
+.main-text {
+  font-weight: 600;
+  color: #0f172a; /* Nome dell'ateneo bello marcato e scuro */
+}
+
+/* Piccola chicca per il codice: lo mette dentro un micro-badge */
+.code-badge span {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+/* Stile della riga vuota */
+.empty-row {
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+  padding: 30px !important;
+}
+
+.table-container h1 {
+  color: #f59e0b; 
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 700; 
+}

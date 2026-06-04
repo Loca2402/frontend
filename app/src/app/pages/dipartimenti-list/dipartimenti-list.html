@@ -1,6 +1,6 @@
-<div>
-    <h1>Dipartimenti Universitari</h1>
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
+<div class="table-container">
+    <h1>Elenco Dipartimenti Universitari</h1>
+    <table class="custom-table">
     <thead>
         <tr>
             <th>ID</th>
@@ -11,13 +11,13 @@
     <tbody>
         @for (dipartimento of listaDipartimenti; track dipartimento.id) {
             <tr>
-                <td>{{dipartimento.id}}</td>
-                <td>{{dipartimento.codice}}</td>
-                <td>{{dipartimento.nome}}</td>
+                <td class="id-column">{{dipartimento.id}}</td>
+                <td class="code-badge"><span>{{dipartimento.codice}}</span></td>
+                <td  class="main-text">{{dipartimento.nome}}</td>
             </tr>
         } @empty {
             <tr>
-            <td colspan="4" align="center">NESSUN DIPARTIMENTO TROVATO.</td>
+            <td colspan="4" class="empty-row">NESSUN DIPARTIMENTO TROVATO.</td>
             </tr>
         }
     </tbody>

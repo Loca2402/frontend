@@ -16,3 +16,25 @@ h1 {
   margin-bottom: 20px;
   text-align: center; 
 }
+
+
+.main-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e293b; /* Blu scuro elegante (lo stesso dell'intestazione delle tabelle) */
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Ombra sotto la barra */
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  list-style: none;
+}
+
+/* Logo / Nome del software a sinistra */
+.navbar-brand {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
