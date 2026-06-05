@@ -1,4 +1,4 @@
-#codice, #nome, #citta {
+#codice, #nome, #ateneo {
   width: 100%;
   max-width: 400px;
   padding: 10px 14px;
@@ -11,9 +11,9 @@
   transition: all 0.2s ease;
 }
 
-#codice:focus, #nome:focus, #citta:focus {
+#codice:focus, #nome:focus, #ateneo:focus {
   outline: none;                      
-  border-color: #0ea5e9;              
+  border-color: #10b981;              
   background-color: #ffffff;          
   box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15); 
 }
@@ -39,7 +39,7 @@ button[type="submit"] {
 }
 
 button[type="submit"] {
-  background-color: #0284c7; 
+  background-color: #10b981; 
 }
 
 button[type="submit"]:disabled {
@@ -47,7 +47,7 @@ button[type="submit"]:disabled {
   cursor: not-allowed;      
 }
 
-a[routerLink="/atenei"] {
+a[routerLink="/dipartimenti"] {
   display: inline-block;     
   color: #64748b;           
   text-decoration: none;     
@@ -58,7 +58,8 @@ a[routerLink="/atenei"] {
   transition: all 0.2s ease;
 }
 
-a[routerLink="/atenei"] {
+a[routerLink="/dipartimenti"] {
   color: #ffffff;            
-  background-color: #e11919;  
+  background-color: #e11919; 
+  
 }

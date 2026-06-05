@@ -1,0 +1,58 @@
+<section>
+  <h2>Nuovo Dipartimento</h2>
+
+  @if (errore) {
+  <p style="color: red;">
+    {{ errore }}
+  </p>
+}
+
+  <form (ngSubmit)="salva()">
+    <div>
+      <label for="codice">Codice</label><br>
+      <input
+        id="codice"
+        type="text"
+        name="codice"
+        [(ngModel)]="dipartimento.codice"
+        placeholder="Es. 201"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="nome">Nome Dipartimento</label><br>
+      <input
+        id="nome"
+        type="text"
+        name="nome"
+        [(ngModel)]="dipartimento.nome"
+        placeholder="Es. Filosofia"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="ateneo">id Ateneo di riferimento</label><br>
+      <input
+        id="ateneo"
+        type="text"
+        name="ateneo"
+        [(ngModel)]="dipartimento.ateneo_Id"
+        placeholder="Es. 1"
+      />
+    </div>
+
+    <br>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Salvataggio...' : 'Salva' }}
+    </button>
+
+    <a routerLink="/dipartimenti" style="margin-left: 12px;">
+      Annulla
+    </a>
+  </form>
+</section>

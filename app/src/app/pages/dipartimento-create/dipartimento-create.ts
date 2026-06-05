@@ -5,17 +5,17 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
 
 @Component({
-  selector: 'app-ateneo-create',
+  selector: 'app-dipartimento-create',
   imports: [CommonModule, RouterLink, FormsModule], 
-  templateUrl: './ateneo-create.html',
-  styleUrl: './ateneo-create.css',
+  templateUrl: './dipartimento-create.html',
+  styleUrl: './dipartimento-create.css',
 })
-export class AteneoCreateComponent {
+export class DipartimentoCreateComponent {
   
-  ateneo = {
+  dipartimento = {
   codice: '',
   nome: '',
-  citta: ''
+  ateneo: ''
 };
 
  constructor(
@@ -30,10 +30,10 @@ salva(): void {
   this.loading = true;
   this.errore = '';
 
-  this.http.post("http://localhost:8080/api/atenei", this.ateneo).subscribe({
+  this.http.post("http://localhost:8080/api/dipartimenti", this.dipartimento).subscribe({
     next: () => {
       this.loading = false;
-      this.router.navigate(['/atenei']);
+      this.router.navigate(['/dipartimenti']);
     },
     error: (err) => {
       this.loading = false;

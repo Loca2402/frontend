@@ -1,11 +1,13 @@
 <div class="table-container">
     <h1>Elenco Dipartimenti Universitari</h1>
+    <a routerLink="/dipartimenti/nuovo" class="btn-add">AGGIUNGI DIPARTIMENTO</a>
     <table class="custom-table">
     <thead>
         <tr>
             <th>ID</th>
             <th>Codice</th>
             <th>Nome Dipartimento</th>
+            <th>ATENEO</th>
         </tr>
     </thead>
     <tbody>
@@ -14,6 +16,8 @@
                 <td class="id-column">{{dipartimento.id}}</td>
                 <td class="code-badge"><span>{{dipartimento.codice}}</span></td>
                 <td  class="main-text">{{dipartimento.nome}}</td>
+                <td class="id_column">{{dipartimento.nomeAteneo}}</td>
+                
             </tr>
         } @empty {
             <tr>
