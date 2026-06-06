@@ -1,0 +1,82 @@
+<section>
+  <h2>Nuovo Corso</h2>
+
+  @if (errore) {
+  <p style="color: red;">
+    {{ errore }}
+  </p>
+}
+
+  <form (ngSubmit)="salva()">
+    <div>
+      <label for="codice">Codice</label><br>
+      <input
+        id="codice"
+        type="text"
+        name="codice"
+        [(ngModel)]="corso.codice"
+        placeholder="Es. 5921"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="nome">Nome Corso</label><br>
+      <input
+        id="nome"
+        type="text"
+        name="nome"
+        [(ngModel)]="corso.nome"
+        placeholder="Es. analisi"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="nome">Anno Accademico Corso</label><br>
+      <input
+        id="nome"
+        type="text"
+        name="nome"
+        [(ngModel)]="corso.annoAccademico"
+        placeholder="Es. 2006/2007"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="nome">tipo del titolo del Corso</label><br>
+      <input
+        id="nome"
+        type="text"
+        name="nome"
+        [(ngModel)]="corso.tipoTitolo"
+        placeholder="Es. laurea triennale"
+      />
+    </div>
+
+    <div>
+      <label for="dipartimento">codice Dipartimento di riferimento</label><br>
+      <input
+        id="dipartimento"
+        type="text"
+        name="dipartimento"
+        [(ngModel)]="corso.dipartimento.codice"
+        placeholder="Es. 201"
+      />
+    </div>
+
+    <br>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Salvataggio...' : 'Salva' }}
+    </button>
+
+    <a routerLink="/corsi" style="margin-left: 12px;">
+      Annulla
+    </a>
+  </form>
+</section>

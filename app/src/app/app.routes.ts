@@ -8,6 +8,7 @@ import { CorsiListComponent } from './pages/corsi-list/corsi-list';
 import { StudentiListComponent } from './pages/studenti-list/studenti-list';
 import { AteneoCreateComponent } from './pages/ateneo-create/ateneo-create';
 import { DipartimentoCreateComponent } from './pages/dipartimento-create/dipartimento-create';
+import { CorsoCreateComponent } from './pages/corso-create/corso-create';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,5 +18,7 @@ export const routes: Routes = [
   { path: 'dipartimenti', component: DipartimentiListComponent },
   { path: 'dipartimenti/nuovo', component: DipartimentoCreateComponent},
   { path: 'corsi', component: CorsiListComponent },
+  { path: 'corsi/nuovo', component: CorsoCreateComponent},
   { path: 'studenti', component: StudentiListComponent },
+
 ];

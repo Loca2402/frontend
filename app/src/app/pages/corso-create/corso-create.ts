@@ -5,18 +5,19 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
 
 @Component({
-  selector: 'app-dipartimento-create',
-  imports: [CommonModule, RouterLink, FormsModule], 
-  templateUrl: './dipartimento-create.html',
-  styleUrl: './dipartimento-create.css',
+  selector: 'app-corso-create',
+  imports: [CommonModule, RouterLink, FormsModule],
+  templateUrl: './corso-create.html',
+  styleUrl: './corso-create.css',
 })
-export class DipartimentoCreateComponent {
-  
-  dipartimento = {
+export class CorsoCreateComponent {
+    corso = {
   codice: '',
   nome: '',
-  ateneo: {
-    ateneoId: null
+  annoAccademico: '',
+  tipoTitolo: '',
+  dipartimento: {
+    codice: null
   }
 };
 
@@ -32,10 +33,10 @@ salva(): void {
   this.loading = true;
   this.errore = '';
 
-  this.http.post("http://localhost:8080/api/dipartimenti", this.dipartimento).subscribe({
+  this.http.post("http://localhost:8080/api/corsi", this.corso).subscribe({
     next: () => {
       this.loading = false;
-      this.router.navigate(['/dipartimenti']);
+      this.router.navigate(['/corsi']);
     },
     error: (err) => {
       this.loading = false;
@@ -45,3 +46,4 @@ salva(): void {
   });
 }
 }
+

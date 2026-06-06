@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        @for (dipartimento of listaDipartimenti; track dipartimento.id) {
+        @for (dipartimento of listaDipartimenti; track dipartimento.dipartimentoId) {
             <tr>
                 <td class="id-column">{{dipartimento.id}}</td>
                 <td class="code-badge"><span>{{dipartimento.codice}}</span></td>
