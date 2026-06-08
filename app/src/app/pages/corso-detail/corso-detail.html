@@ -1,0 +1,20 @@
+<section>
+  <h2>Dettaglio Corso</h2>
+
+  @if (corso) {
+    <div>
+      <p><strong>ID:</strong> {{ corso.idCorso }}</p>
+      <p><strong>Codice:</strong> {{ corso.codice }}</p>
+      <p><strong>Nome:</strong> {{ corso.nome }}</p>
+      <p><strong>Anno Accademico:</strong> {{ corso.annoaccademico }}</p>
+      <p><strong>Tipo Titolo:</strong> {{ corso.tipoTitolo }}</p>
+      <p><strong>Dipartimento di riferimento:</strong> {{ corso.nomeDipartimento }}</p>
+      <p><strong>Codice dipartimento di riferimento:</strong> {{ corso.codiceDipartimento }}</p>
+      <p><strong>Nome Ateneo:</strong> {{ corso.nomeAteneo }}</p>
+      <p><strong>Codice Ateneo:</strong> {{ corso.ateneoId }}</p>
+      
+    </div>
+  }
+
+  <a routerLink="/atenei">Torna alla lista corsi</a>
+</section>

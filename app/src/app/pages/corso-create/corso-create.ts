@@ -16,9 +16,7 @@ export class CorsoCreateComponent {
   nome: '',
   annoAccademico: '',
   tipoTitolo: '',
-  dipartimento: {
-    codice: null
-  }
+  codiceDipartimento: null
 };
 
  constructor(

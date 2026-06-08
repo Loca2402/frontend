@@ -91,3 +91,11 @@
   margin-bottom: 25px;
   font-weight: 700; 
 }
+
+.table-container a {
+  color: #f59e0b;
+  font-size: 1rem;            
+  text-decoration: none;
+  font-weight: 600;           
+  transition: color 0.2s ease; 
+}

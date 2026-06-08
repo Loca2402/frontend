@@ -12,10 +12,10 @@
       <label for="codice">Codice</label><br>
       <input
         id="codice"
-        type="text"
+        type="number"
         name="codice"
         [(ngModel)]="corso.codice"
-        placeholder="Es. 5921"
+        placeholder="Es. 101"
       />
     </div>
 
@@ -41,7 +41,7 @@
         type="text"
         name="nome"
         [(ngModel)]="corso.annoAccademico"
-        placeholder="Es. 2006/2007"
+        placeholder="Es. 2025"
       />
     </div>
 
@@ -62,9 +62,9 @@
       <label for="dipartimento">codice Dipartimento di riferimento</label><br>
       <input
         id="dipartimento"
-        type="text"
+        type="number"
         name="dipartimento"
-        [(ngModel)]="corso.dipartimento.codice"
+        [(ngModel)]="corso.codiceDipartimento"
         placeholder="Es. 201"
       />
     </div>

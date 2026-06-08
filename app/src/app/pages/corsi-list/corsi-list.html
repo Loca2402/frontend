@@ -10,7 +10,6 @@
             <th>Anno Accademico</th>
             <th>Tipo Titolo</th>
             <th>Dipartimento</th>
-            <th>Ateneo</th>
         </tr>
     </thead>
     <tbody>
@@ -21,8 +20,7 @@
                 <td class="main-text">{{corso.nome}}</td>
                 <td class="code-badge"><span>{{corso.annoAccademico}}</span></td>
                 <td class="main-text">{{corso.tipoTitolo}}</td>
-                <td class="main-text">{{corso.dipartimento.nome}}</td>
-                <td class="main-text">{{corso.ateneo.nome}}</td>
+                <td class="main-text">{{corso.nomeDipartimento}}</td>
             </tr>
         } @empty {
             <tr>
