@@ -1,30 +1,33 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-studenti-list',
+  selector: 'app-studente-detail',
   imports: [CommonModule, RouterLink],
-  templateUrl: './studenti-list.html',
-  styleUrl: './studenti-list.css',
+  templateUrl: './studente-detail.html',
+  styleUrl: './studente-detail.css',
 })
-export class StudentiListComponent implements OnInit {
-  listaStudenti:any[]=[];
+export class StudenteDetailComponent implements OnInit{
+  studente:any=null;
   constructor(
     private http:HttpClient,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.http.get<any>("http://localhost:8080/api/studenti").subscribe({
+    const idStudente = this.route.snapshot.paramMap.get('id'); 
+    this.http.get<any>(`http://localhost:8080/api/studenti/${idStudente}`).subscribe({
       next:(response) => 
         {console.log(response);
 
           if (response && response.result) {
-          this.listaStudenti = response.result;
+          this.studente = response.result;
         } else {
-          this.listaStudenti = response; 
+          this.studente = response; 
         }
         this.cd.detectChanges();
 
@@ -36,6 +39,4 @@ export class StudentiListComponent implements OnInit {
   }
 
 }
-
-
 

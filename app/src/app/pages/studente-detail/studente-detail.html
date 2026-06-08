@@ -1,0 +1,23 @@
+<section>
+  <h2>Dettaglio Studente</h2>
+
+  @if (studente) {
+    <div>
+      <p><strong>ID:</strong> {{ studente.id }}</p>
+      <p><strong>Matricola:</strong> {{ studente.matricola }}</p>
+      <p><strong>Nome:</strong> {{ studente.nome }}</p>
+      <p><strong>Cognome:</strong> {{ studente.cognome }}</p>
+      <p><strong>Data di nascita:</strong> {{ studente.dataNascita }}</p>
+      <p><strong>Codice Fiscale:</strong> {{ studente.codiceFiscale }}</p>
+      <p><strong>Sesso:</strong> {{ studente.sesso }}</p>
+     <p><strong>Email:</strong> {{ studente.recapito?.email }}</p>
+    <p><strong>Telefono:</strong> {{ studente.recapito?.telefono }}</p>
+    <p><strong>Indirizzo:</strong> {{ studente.recapito?.indirizzo }}</p>
+    <p><strong>Comune:</strong> {{ studente.recapito?.comune }}</p>
+    <p><strong>CAP:</strong> {{ studente.recapito?.cap }}</p>
+
+    </div>
+  }
+
+  <a routerLink="/studenti">Torna alla lista studenti</a>
+</section>

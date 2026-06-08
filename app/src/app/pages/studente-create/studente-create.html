@@ -1,0 +1,172 @@
+<section>
+  <h2>Nuovo Studente</h2>
+
+  @if (errore) {
+  <p style="color: red;">
+    {{ errore }}
+  </p>
+}
+
+  <form (ngSubmit)="salva()">
+    <div>
+      <label for="matricola">Matricola</label><br>
+      <input
+        id="matricola"
+        type="text"
+        name="matricola"
+        [(ngModel)]="studente.matricola"
+        placeholder="Es. 0001"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="nome">Nome</label><br>
+      <input
+        id="nome"
+        type="text"
+        name="nome"
+        [(ngModel)]="studente.nome"
+        placeholder="Es. Mario"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="nome">Cognome</label><br>
+      <input
+        id="cognome"
+        type="text"
+        name="cognome"
+        [(ngModel)]="studente.cognome"
+        placeholder="Es. Rossi"
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="dataNascita">Data di Nascita</label><br>
+      <input
+        id="dataNascita"
+        type="text"
+        name="dataNascita"
+        [(ngModel)]="studente.dataNascita"
+        placeholder="Es. 08-06-2000"
+      />
+    </div>
+
+
+    <br>
+
+    <div>
+      <label for="codiceFiscale">CF</label><br>
+      <input
+        id="codiceFiscale"
+        type="text"
+        name="codiceFiscale"
+        [(ngModel)]="studente.codiceFiscale"
+        placeholder="Es. VRDGSP..."
+      />
+    </div>
+
+    <br>
+
+    <div>
+      <label for="sesso">Sesso</label><br>
+      <input
+        id="sesso"
+        type="text"
+        name="sesso"
+        [(ngModel)]="studente.sesso"
+        placeholder="Es. M, F"
+      />
+    </div>
+
+
+
+    <br>
+
+    <h3>CONTATTI DELLO STUDENTE:</h3>
+
+    <br>
+
+    <div>
+      <label for="email">Email</label><br>
+      <input
+        id="email"
+        type="text"
+        name="email"
+        [(ngModel)]="studente.recapito.email"
+        placeholder="Es. esempio@ciao.it"
+      />
+    </div>
+
+    <br>
+
+    
+    <div>
+      <label for="telefono">Telefono</label><br>
+      <input
+        id="telefono"
+        type="text"
+        name="telefono"
+        [(ngModel)]="studente.recapito.telefono"
+        placeholder="Es. 2345678901"
+      />
+    </div>
+
+    <br>
+
+    
+    <div>
+      <label for="indirizzo">Indirizzo</label><br>
+      <input
+        id="indirizzo"
+        type="text"
+        name="indirizzo"
+        [(ngModel)]="studente.recapito.indirizzo"
+        placeholder="Es. Via dai cogl10ni"
+      />
+    </div>
+
+    <br>
+
+    
+    <div>
+      <label for="comune">Comune</label><br>
+      <input
+        id="comune"
+        type="text"
+        name="comune"
+        [(ngModel)]="studente.recapito.comune"
+        placeholder="Es. RM"
+      />
+    </div>
+
+    <br>
+
+    
+    <div>
+      <label for="cap">CAP</label><br>
+      <input
+        id="cap"
+        type="text"
+        name="cap"
+        [(ngModel)]="studente.recapito.cap"
+        placeholder="Es. 00001"
+      />
+    </div>
+
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Salvataggio...' : 'Salva' }}
+    </button>
+
+    <a routerLink="/studenti" style="margin-left: 12px;">
+      Annulla
+    </a>
+  </form>
+</section>

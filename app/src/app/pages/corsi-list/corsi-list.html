@@ -17,14 +17,15 @@
             <tr>
                 <td class="id-column">{{corso.idCorso}}</td>
                 <td class="code-badge"><span>{{corso.codice}}</span></td>
-                <td class="main-text">{{corso.nome}}</td>
+                <a [routerLink]="['/corsi',corso.idCorso]"><td class="main-text">{{corso.nome}}</td></a>
+
                 <td class="code-badge"><span>{{corso.annoAccademico}}</span></td>
                 <td class="main-text">{{corso.tipoTitolo}}</td>
                 <td class="main-text">{{corso.nomeDipartimento}}</td>
             </tr>
         } @empty {
             <tr>
-            <td colspan="4" class="empty-row">NESSUN CORSO TROVATO.</td>
+            <td colspan="7" class="empty-row">NESSUN CORSO TROVATO.</td>
             </tr>
         }
     </tbody>

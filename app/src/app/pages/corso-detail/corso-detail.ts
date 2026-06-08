@@ -20,7 +20,7 @@ export class CorsoDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const idCorso = this.route.snapshot.paramMap.get('idCorso'); 
-    this.http.get<any>(`http://localhost:8080/api/atenei/${idCorso}`).subscribe({
+    this.http.get<any>(`http://localhost:8080/api/corsi/${idCorso}`).subscribe({
       next:(response) => 
         {console.log(response);
 

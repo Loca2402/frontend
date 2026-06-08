@@ -9,6 +9,10 @@ import { StudentiListComponent } from './pages/studenti-list/studenti-list';
 import { AteneoCreateComponent } from './pages/ateneo-create/ateneo-create';
 import { DipartimentoCreateComponent } from './pages/dipartimento-create/dipartimento-create';
 import { CorsoCreateComponent } from './pages/corso-create/corso-create';
+import { CorsoDetailComponent } from './pages/corso-detail/corso-detail';
+import { StudenteCreateComponent } from './pages/studente-create/studente-create';
+import { StudenteDetailComponent } from './pages/studente-detail/studente-detail';
+
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +23,9 @@ export const routes: Routes = [
   { path: 'dipartimenti/nuovo', component: DipartimentoCreateComponent},
   { path: 'corsi', component: CorsiListComponent },
   { path: 'corsi/nuovo', component: CorsoCreateComponent},
+  { path: 'corsi/:idCorso', component: CorsoDetailComponent},
   { path: 'studenti', component: StudentiListComponent },
+  { path: 'studenti/nuovo', component: StudenteCreateComponent},
+  { path: 'studenti/:id', component: StudenteDetailComponent}
 
 ];

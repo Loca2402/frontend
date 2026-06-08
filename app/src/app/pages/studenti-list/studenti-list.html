@@ -1,5 +1,6 @@
 <div class="table-container">
     <h1>Lista Studenti</h1>
+    <a routerLink="/studenti/nuovo" class="btn-add">AGGIUNGI STUDENTE</a>
     <table  class="custom-table">
     <thead>
         <tr>
@@ -14,7 +15,9 @@
             <tr>
                 <td class="id-column">{{studente.id}}</td>
                 <td class="code-badge"><span>{{studente.matricola}}</span></td>
-                <td class="main-text">{{studente.nome}}</td>
+               <td class="main-text">
+                <a [routerLink]="['/studenti', studente.id]" style="text-decoration: none; color: inherit; font-weight: bold;">{{studente.nome}} </a>
+            </td>
                 <td class="main-text">{{studente.cognome}}</td>
             </tr>
         } @empty {
