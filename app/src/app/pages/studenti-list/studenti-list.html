@@ -1,6 +1,35 @@
 <div class="table-container">
     <h1>Lista Studenti</h1>
     <a routerLink="/studenti/nuovo" class="btn-add">AGGIUNGI STUDENTE</a>
+
+    <button type="button" (click)="toggleRicerca()" style="color: #8b5cf6">
+        {{ mostraBarraRicerca ? 'CHIUDI RICERCA' : 'CERCA CORSO' }}
+      </button>
+
+      
+@if (mostraBarraRicerca) {
+    <div class="search-sidebar">
+      <h3>Filtra Studenti</h3>
+      
+      <form (ngSubmit)="eseguiRicerca()">
+        <div class="sidebar-field">
+          <label>ID Studente</label>
+          <input type="text" [(ngModel)]="filtri.id" name="id" (keyup.enter)="eseguiRicerca()">
+        </div>
+
+        <div class="sidebar-field">
+          <label>Matricola Studente</label>
+          <input type="text" [(ngModel)]="filtri.matricola" name="matricola" (keyup.enter)="eseguiRicerca()">
+        </div>
+
+        <div class="sidebar-actions">
+          <button type="submit" class="btn-filter">Filtra</button>
+          <button type="button" class="btn-reset" (click)="resetFiltri()">Reset</button>
+        </div>
+      </form>
+    </div>
+  }
+
     <table  class="custom-table">
     <thead>
         <tr>

@@ -91,3 +91,128 @@
   margin-bottom: 25px;
   font-weight: 700; 
 }
+
+.table-container a {
+  color: #8b5cf6;
+  font-size: 1rem;            
+  text-decoration: none;
+  font-weight: 600;           
+  transition: color 0.2s ease; 
+}
+
+
+.search-sidebar {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border-left: 6px solid #8b5cf6; 
+  margin-top: 15px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.search-sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #1e293b;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.search-sidebar form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end; 
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap; 
+}
+
+
+.sidebar-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: none; 
+}
+
+.sidebar-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.sidebar-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  color: #334155;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  background-color: #f8fafc;
+}
+
+.sidebar-field input:focus {
+  border-color: #8b5cf6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15); 
+}
+
+.sidebar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-filter {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  height: 41px; 
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.btn-filter:hover {
+  background-color: #420573;
+}
+
+.btn-reset {
+  background-color: #94a3b8;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  height: 41px;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.btn-reset:hover {
+  background-color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .search-sidebar form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .sidebar-actions {
+    margin-top: 10px;
+    justify-content: flex-end;
+  }
+}

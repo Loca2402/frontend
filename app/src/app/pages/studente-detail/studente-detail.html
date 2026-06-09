@@ -3,19 +3,73 @@
 
   @if (studente) {
     <div>
-      <p><strong>ID:</strong> {{ studente.id }}</p>
-      <p><strong>Matricola:</strong> {{ studente.matricola }}</p>
-      <p><strong>Nome:</strong> {{ studente.nome }}</p>
-      <p><strong>Cognome:</strong> {{ studente.cognome }}</p>
-      <p><strong>Data di nascita:</strong> {{ studente.dataNascita }}</p>
-      <p><strong>Codice Fiscale:</strong> {{ studente.codiceFiscale }}</p>
-      <p><strong>Sesso:</strong> {{ studente.sesso }}</p>
-     <p><strong>Email:</strong> {{ studente.recapito?.email }}</p>
-    <p><strong>Telefono:</strong> {{ studente.recapito?.telefono }}</p>
-    <p><strong>Indirizzo:</strong> {{ studente.recapito?.indirizzo }}</p>
-    <p><strong>Comune:</strong> {{ studente.recapito?.comune }}</p>
-    <p><strong>CAP:</strong> {{ studente.recapito?.cap }}</p>
+      <p><strong>ID:</strong> <span>{{ studente.id }}</span></p>
+      <p><strong>Matricola:</strong> <span>{{ studente.matricola }}</span></p>
+      <p><strong>Nome:</strong> <span>{{ studente.nome }}</span></p>
+      <p><strong>Cognome:</strong> <span>{{ studente.cognome }}</span></p>
+      <p><strong>Data di nascita:</strong> <span>{{ studente.dataNascita }}</span></p>
+      <p><strong>Codice Fiscale:</strong> <span>{{ studente.codiceFiscale }}</span></p>
+      <p><strong>Sesso:</strong> <span>{{ studente.sesso }}</span></p>
+      <p><strong>Email:</strong> <span>{{ studente.recapito?.email }}</span></p>
+      <p><strong>Telefono:</strong> <span>{{ studente.recapito?.telefono }}</span></p>
+      <p><strong>Indirizzo:</strong> <span>{{ studente.recapito?.indirizzo }}</span></p>
+      <p><strong>Comune:</strong> <span>{{ studente.recapito?.comune }}</span></p>
+      <p><strong>CAP:</strong> <span>{{ studente.recapito?.cap }}</span></p>
 
+    </div>
+  }
+
+  <div class="section-header">
+    <h3>Gestione Iscrizione Corsi</h3>
+    <button type="button" (click)="toggleRicerca()" class="btn-toggle">
+      {{ mostraBarraRicerca ? 'CHIUDI ISCRIZIONE' : '➕ ISCRIVI A UN CORSO' }}
+    </button>
+  </div>
+
+  @if (mostraBarraRicerca) {
+    <div class="search-sidebar">
+      <h3>Nuova Iscrizione</h3>
+      
+      <form (ngSubmit)="eseguiRicerca()">
+        
+        <div class="sidebar-field">
+          <label>Scegli Corso</label>
+          <select [(ngModel)]="filtri.idCorso" name="idCorso" required>
+            <option value="" disabled selected>-- Seleziona --</option>
+            @for (corso of listaCorsi; track corso.idCorso) {
+              <option [value]="corso.idCorso">{{corso.nome}}</option>
+            }
+          </select>
+        </div>
+
+        <div class="sidebar-field">
+          <label>Anno Accademico</label>
+          <input type="text" [(ngModel)]="filtri.annoAccademico" name="annoAccademico">
+        </div>
+
+      <div class="sidebar-field">
+        <label>Stato Iscrizione</label>
+        <select [(ngModel)]="filtri.stato" name="stato" required>
+        <option value="" disabled>-- Stato --</option>
+       <option value="BOZZA">BOZZA</option>
+        <option value="PRESENTATA">PRESENTATA</option>
+        <option value="APPROVATA">APPROVATA</option>
+        <option value="RESPINTA">RESPINTA</option>
+        <option value="RINUNCIATA">RINUNCIATA</option>
+        </select>
+      </div>
+
+        <div class="sidebar-field">
+          <label>Data Iscrizione</label>
+          <input type="date" [(ngModel)]="filtri.dataIscrizione" name="dataIscrizione">
+        </div>
+
+        <div class="sidebar-actions">
+          <button type="submit" class="btn-filter">CONFERMA</button>
+          <button type="button" class="btn-reset" (click)="resetFiltri()">RESET</button>
+        </div>
+
+      </form>
     </div>
   }
 

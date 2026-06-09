@@ -15,7 +15,7 @@ import { StudenteDetailComponent } from './pages/studente-detail/studente-detail
 
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch:'full' },
   { path: 'atenei', component: AteneiListComponent },
   { path: 'atenei/nuovo', component: AteneoCreateComponent },
   { path: 'atenei/:ateneoId', component: AteneoDetailComponent },
@@ -23,9 +23,11 @@ export const routes: Routes = [
   { path: 'dipartimenti/nuovo', component: DipartimentoCreateComponent},
   { path: 'corsi', component: CorsiListComponent },
   { path: 'corsi/nuovo', component: CorsoCreateComponent},
+  { path: 'corsi/search', component: CorsiListComponent},
   { path: 'corsi/:idCorso', component: CorsoDetailComponent},
   { path: 'studenti', component: StudentiListComponent },
   { path: 'studenti/nuovo', component: StudenteCreateComponent},
-  { path: 'studenti/:id', component: StudenteDetailComponent}
+  { path: 'studenti/search', component: StudentiListComponent},
+  { path: 'studenti/:id', component: StudenteDetailComponent},
 
 ];

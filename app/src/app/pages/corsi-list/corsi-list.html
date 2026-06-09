@@ -1,6 +1,43 @@
+<div class="layout-wrapper">
+
 <div class="table-container">
     <h1>Corsi Universitari</h1>
     <a routerLink="/corsi/nuovo" class="btn-add">AGGIUNGI CORSO</a>
+
+    <button type="button" (click)="toggleRicerca()" style="color: #f59e0b">
+        {{ mostraBarraRicerca ? 'CHIUDI RICERCA' : 'CERCA CORSO' }}
+      </button>
+
+      
+@if (mostraBarraRicerca) {
+    <div class="search-sidebar">
+      <h3>Filtra Corsi</h3>
+      
+      <form (ngSubmit)="eseguiRicerca()">
+        <div class="sidebar-field">
+          <label>Nome Corso</label>
+          <input type="text" [(ngModel)]="filtri.nome" name="nome" placeholder="Es. Analisi" (keyup.enter)="eseguiRicerca()">
+        </div>
+
+        <div class="sidebar-field">
+          <label>Tipo Titolo</label>
+          <input type="text" [(ngModel)]="filtri.tipoTitolo" name="tipoTitolo" placeholder="Es. Triennale" (keyup.enter)="eseguiRicerca()">
+        </div>
+
+        <div class="sidebar-field">
+          <label>Anno Accademico</label>
+          <input type="text" [(ngModel)]="filtri.annoAccademico" name="annoAccademico" placeholder="Es. 2025" (keyup.enter)="eseguiRicerca()">
+        </div>
+
+        <div class="sidebar-actions">
+          <button type="submit" class="btn-filter">Filtra</button>
+          <button type="button" class="btn-reset" (click)="resetFiltri()">Reset</button>
+        </div>
+      </form>
+    </div>
+  }
+
+
     <table class="custom-table">
     <thead>
         <tr>
@@ -30,4 +67,5 @@
         }
     </tbody>
     </table>
+</div>
 </div>
