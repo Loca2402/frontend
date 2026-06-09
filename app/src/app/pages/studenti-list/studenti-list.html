@@ -14,12 +14,12 @@
       <form (ngSubmit)="eseguiRicerca()">
         <div class="sidebar-field">
           <label>ID Studente</label>
-          <input type="text" [(ngModel)]="filtri.id" name="id" (keyup.enter)="eseguiRicerca()">
+          <input type="text" [(ngModel)]="filtri.id" name="id" (input)="eseguiRicerca()">
         </div>
 
         <div class="sidebar-field">
           <label>Matricola Studente</label>
-          <input type="text" [(ngModel)]="filtri.matricola" name="matricola" (keyup.enter)="eseguiRicerca()">
+          <input type="text" [(ngModel)]="filtri.matricola" name="matricola" (input)="eseguiRicerca()">
         </div>
 
         <div class="sidebar-actions">

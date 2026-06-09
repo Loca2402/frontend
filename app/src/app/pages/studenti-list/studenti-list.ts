@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class StudentiListComponent implements OnInit {
   listaStudenti:any[]=[];
+  listaStudentiCompleta:any[]=[];
    mostraBarraRicerca: boolean = false;
   filtri = {
     id: '',
@@ -35,6 +36,7 @@ export class StudentiListComponent implements OnInit {
         } else {
           this.listaStudenti = response; 
         }
+        this.listaStudentiCompleta = this.listaStudenti;
         this.cd.detectChanges();
 
     },
@@ -56,31 +58,21 @@ export class StudentiListComponent implements OnInit {
   }
 
   eseguiRicerca(): void {
-    this.http.get<any>("http://localhost:8080/api/studenti/search", { params: this.filtri }).subscribe({
-      next: (response) => {
-        console.log("Risultati ricerca:", response);
-        
-        if (response && response.result) {
-          this.listaStudenti = response.result;
-        } else {
-          this.listaStudenti = response;
-        }
-        this.cd.detectChanges();
-      },
-      error: (err) => {
-        console.error("Errore durante la ricerca", err);
-        this.listaStudenti = [];
-        this.cd.detectChanges();
-      }
+    this.listaStudenti = this.listaStudentiCompleta.filter((studente) => {
+      const matchId = !this.filtri.id || String(studente.id).includes(this.filtri.id);
+      const matchMatricola = !this.filtri.matricola || String(studente.matricola).includes(this.filtri.matricola);
+
+      return matchId && matchMatricola;
     });
+
+    this.cd.detectChanges();
   }
+
   resetFiltri(): void {
     this.filtri = { id: '', matricola: ''};
-    this.eseguiRicerca();
+    this.listaStudenti = this.listaStudentiCompleta;
+    this.cd.detectChanges();
   }
 
 
 }
-
-
-
