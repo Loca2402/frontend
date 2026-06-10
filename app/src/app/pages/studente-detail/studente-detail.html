@@ -19,13 +19,44 @@
     </div>
   }
 
-  <div class="section-header">
+ <div class="subscription-section">
     <h3>Gestione Iscrizione Corsi</h3>
-    <button type="button" (click)="toggleRicerca()" class="btn-toggle">
-      {{ mostraBarraRicerca ? 'CHIUDI ISCRIZIONE' : '➕ ISCRIVI A UN CORSO' }}
-    </button>
-  </div>
 
+    @if (listaIscrizioni.length > 0) {
+      <div class="active-course-box">
+        <h4>Corso Frequentato</h4>
+        <p><strong>Codice Corso:</strong> <span>{{ listaIscrizioni[0].corso?.codice }}</span></p>
+        <p><strong>Nome Corso:</strong> <span>{{ listaIscrizioni[0].corso?.nome }}</span></p>
+        <p><strong>Anno Accademico:</strong> <span>{{ listaIscrizioni[0].annoAccademico }}</span></p>
+        <p>
+       <strong>Stato Domanda:</strong> 
+       <span class="badge-status">{{ listaIscrizioni[0].stato }}</span>
+  
+       <select 
+              [(ngModel)]="statoSelezionato" 
+              (change)="modificaStato()"
+              style="margin-left: 10px; padding: 4px 8px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 0.85rem; color: #475569; background-color: #f8fafc; outline: none; cursor: pointer;"
+            >
+              <option value="" disabled selected> Modifica Stato</option>
+              <option value="BOZZA">BOZZA</option>
+              <option value="PRESENTATA">PRESENTATA</option>
+              <option value="APPROVATA">APPROVATA</option>
+              <option value="RESPINTA">RESPINTA</option>
+              <option value="RINUNCIATA">RINUNCIATA</option>
+            </select>
+      </div>
+      <div><button type="button" (click)="modificaStato()" class="btn-toggle">Aggiorna Stato</button></div>
+    } 
+    
+    @else {
+      <div class="empty-subscription">
+        <p> Nessuna iscrizione attiva per questo studente.</p>
+        <button type="button" (click)="toggleRicerca()" class="btn-toggle">
+          {{ mostraBarraRicerca ? 'CHIUDI FORM' : ' ISCRIVI A UN CORSO' }}
+        </button>
+      </div>
+    }
+  </div>
   @if (mostraBarraRicerca) {
     <div class="search-sidebar">
       <h3>Nuova Iscrizione</h3>

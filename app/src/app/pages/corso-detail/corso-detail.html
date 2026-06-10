@@ -12,9 +12,47 @@
       <p><strong>Codice dipartimento di riferimento:</strong> {{ corso.codiceDipartimento }}</p>
       <p><strong>Nome Ateneo:</strong> {{ corso.nomeAteneo }}</p>
       <p><strong>Codice Ateneo:</strong> {{ corso.codiceAteneo }}</p>
-      
     </div>
   }
+
+  <div class="iscritti-section">
+    <h3>Studenti Iscritti al Corso</h3>
+
+    @if (listaIscritti.length > 0) {
+      <div class="table-responsive">
+        <table class="table-iscritti">
+          <thead>
+            <tr>
+              <th>Matricola</th>
+              <th>Cognome</th>
+              <th>Nome</th>
+              <th>Data Iscrizione</th>
+              <th>Stato Domanda</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (iscrizione of listaIscritti; track iscrizione.id) {
+              <tr>
+                <td><strong>{{ iscrizione.studente?.matricola }}</strong></td>
+                <td>{{ iscrizione.studente?.cognome }}</td>
+                <td>{{ iscrizione.studente?.nome }}</td>
+                <td>{{ iscrizione.dataIscrizione }}</td>
+                <td>
+                  <span class="status-badge">{{ iscrizione.stato }}</span>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    } 
+    @else {
+      <div class="empty-iscritti-box">
+        <p>Al momento nessun alunno risulta registrato o inserito in questo corso.</p>
+      </div>
+    }
+
+  </div>
 
   <a routerLink="/corsi">Torna alla lista corsi</a>
 </section>

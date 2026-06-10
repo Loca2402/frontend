@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CorsoDetailComponent implements OnInit {
   corso:any=null;
+  listaIscritti: any[] = [];
   constructor(
     private http:HttpClient,
     private cd: ChangeDetectorRef,
@@ -36,6 +37,15 @@ export class CorsoDetailComponent implements OnInit {
     console.error("errore durante la chiamata", err);
   }
   })
+
+  this.http.get<any>(`http://localhost:8080/api/corsi/${idCorso}/iscritti`).subscribe({
+      next: (response) => {
+        this.listaIscritti = response && response.result ? response.result : (response || []);
+        this.cd.detectChanges();
+      },
+         error: (err) => console.error("Errore visualizzazione studenti", err)
+      })
+
   }
 
 }

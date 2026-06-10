@@ -11,47 +11,68 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './studente-detail.html',
   styleUrl: './studente-detail.css',
 })
-export class StudenteDetailComponent implements OnInit{
-  studente:any=null;
+export class StudenteDetailComponent implements OnInit {
+  studente: any = null;
+  listaIscrizioni: any[] = [];
   listaCorsi: any[] = [];             
   mostraBarraRicerca: boolean = false; 
   
+  statoSelezionato: string = '';
+
   filtri = {
     idCorso: '',
     annoAccademico: '',
     stato: '',
     dataIscrizione: ''
   };
+
   constructor(
-    private http:HttpClient,
+    private http: HttpClient,
     private cd: ChangeDetectorRef,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     const idStudente = this.route.snapshot.paramMap.get('id'); 
-    this.http.get<any>(`http://localhost:8080/api/studenti/${idStudente}`).subscribe({
-      next:(response) => 
-        {console.log(response);
+    if (idStudente) {
+      this.caricaDatiIniziali(idStudente);
+    }
+  }
 
-          if (response && response.result) {
+  caricaDatiIniziali(idStudente: string): void {
+    this.http.get<any>(`http://localhost:8080/api/studenti/${idStudente}`).subscribe({
+      next: (response) => {
+        if (response && response.result) {
           this.studente = response.result;
         } else {
           this.studente = response; 
         }
         this.cd.detectChanges();
+      },
+      error: (err) => console.error("Errore caricamento studente", err)
+    });
 
-    },
-      error: (err) => {
-    console.error("errore durante la chiamata", err);
-  }
-  });
+    this.caricaIscrizioneStudente(idStudente);
 
-  this.http.get<any>("http://localhost:8080/api/corsi").subscribe({
+    this.http.get<any>("http://localhost:8080/api/corsi").subscribe({
       next: (response) => {
         this.listaCorsi = response && response.result ? response.result : response;
         this.cd.detectChanges();
-      }
+      },
+      error: (err) => console.error("Errore recupero corsi", err)
+    });
+  }
+
+  caricaIscrizioneStudente(idStudente: string | number): void {
+    this.http.get<any>(`http://localhost:8080/api/iscrizioni/studente/${idStudente}`).subscribe({
+      next: (res) => {
+        const datiIscrizione = res && res.result ? res.result : (res || []);
+        setTimeout(() => {
+          this.listaIscrizioni = datiIscrizione;
+          this.cd.detectChanges();
+        }, 0);
+      },
+      error: (err) => console.error("Errore recupero iscrizioni", err)
     });
   }
 
@@ -75,12 +96,31 @@ export class StudenteDetailComponent implements OnInit{
 
     this.http.post<any>("http://localhost:8080/api/iscrizioni", payload).subscribe({
       next: (response) => {
-        console.log("Iscrizione completata:", response);
         this.mostraBarraRicerca = false;
         this.resetFiltri();
-        this.cd.detectChanges();
+        if (this.studente) {
+          this.caricaIscrizioneStudente(this.studente.id);
+        }
       },
-      error: (err) => { console.error("Errore durante l'iscrizione", err); }
+      error: (err) => console.error("Errore durante l'iscrizione", err)
+    });
+  }
+
+  modificaStato(): void {
+    if (this.listaIscrizioni.length === 0 || !this.statoSelezionato) return;
+
+    const idIscrizione = this.listaIscrizioni[0].id;
+    const payload = { stato: this.statoSelezionato };
+
+    this.http.patch<any>(`http://localhost:8080/api/iscrizioni/${idIscrizione}/stato`, payload).subscribe({
+      next: (response) => {
+        console.log("modifica completata:", response);
+        this.statoSelezionato = '';
+        if (this.studente) {
+          this.caricaIscrizioneStudente(this.studente.id);
+        }
+      },
+      error: (err) => console.error("Errore durante la modifica dello stato", err)
     });
   }
 
@@ -89,4 +129,3 @@ export class StudenteDetailComponent implements OnInit{
     this.cd.detectChanges();
   }
 }
-
