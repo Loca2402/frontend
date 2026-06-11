@@ -45,7 +45,13 @@
               <option value="RINUNCIATA">RINUNCIATA</option>
             </select>
       </div>
-      <div><button type="button" (click)="modificaStato()" class="btn-toggle">Aggiorna Stato</button></div>
+      <!-- <div><button type="button" (click)="modificaStato()" class="btn-toggle">Aggiorna Stato</button></div> -->
+
+      @if (mostraConferma) {
+            <span style="margin-left: 15px; color: #16a34a; font-weight: 600; font-size: 0.9rem; animation: fadeIn 0.3s ease;">
+               Stato aggiornato!
+            </span>
+          }
     } 
     
     @else {

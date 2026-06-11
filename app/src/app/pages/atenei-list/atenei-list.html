@@ -10,6 +10,7 @@
             <th>Codice</th>
             <th>Nome Ateneo</th>
             <th>Città</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -19,7 +20,10 @@
                 <td class="code-badge"><span>{{ateneo.codice}}</span></td>
                 <a [routerLink]="['/atenei',ateneo.ateneoId]"><td class="main-text">{{ateneo.nome}}</td></a>
                 <td class="main-text">{{ateneo.citta}}</td>
-            </tr>
+                <td>
+          <button type="button" (click)="eliminaAteneo(ateneo.ateneoId)" class="btn-delete"> Elimina </button>
+          </td>
+          </tr>
         } 
         @empty {
             <tr>

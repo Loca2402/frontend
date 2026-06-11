@@ -8,6 +8,7 @@
             <th>Codice</th>
             <th>Nome Dipartimento</th>
             <th>ATENEO</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,9 @@
                 <td class="code-badge"><span>{{dipartimento.codice}}</span></td>
                 <td  class="main-text">{{dipartimento.nome}}</td>
                 <td class="id_column">{{dipartimento.nomeAteneo}}</td>
+                 <td>
+                <button type="button" (click)="eliminaDipartimento(dipartimento.dipartimentoId)" class="btn-delete"> Elimina </button>
+                </td>
                 
             </tr>
         } @empty {

@@ -33,6 +33,22 @@ export class AteneiListComponent implements OnInit {
     console.error("errore durante la chiamata", err);
   }
   })
-  }
+}
+
+  eliminaAteneo(ateneoId: number): void {
+  if (confirm("Eliminare la riga selezionata?")) {
+    this.http.delete<any>(`http://localhost:8080/api/atenei/${ateneoId}`).subscribe({
+      next: (response) => {
+        console.log("Cancellazione completata:", response);
+        this.listaAtenei = response;
+        this.cd.detectChanges();
+      },
+      error: (err) => {
+         console.error("errore durante la rimozione", err);
+      }
+  })
+}
+
+}
 
 }

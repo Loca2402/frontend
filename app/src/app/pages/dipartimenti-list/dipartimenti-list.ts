@@ -35,5 +35,21 @@ export class DipartimentiListComponent implements OnInit {
   })
   }
 
+    eliminaDipartimento(dipartimentoId: number): void {
+  if (confirm("Eliminare la riga selezionata?")) {
+    this.http.delete<any>(`http://localhost:8080/api/dipartimenti/${dipartimentoId}`).subscribe({
+      next: (response) => {
+        console.log("Cancellazione completata:", response);
+        this.listaDipartimenti = response;
+        this.cd.detectChanges();
+      },
+      error: (err) => {
+         console.error("errore durante la rimozione", err);
+      }
+  })
+}
+
+}
+
 }
 

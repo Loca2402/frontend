@@ -74,5 +74,21 @@ export class StudentiListComponent implements OnInit {
     this.cd.detectChanges();
   }
 
+    eliminaStudente(id: number): void {
+  if (confirm("Eliminare la riga selezionata?")) {
+    this.http.delete<any>(`http://localhost:8080/api/studenti/${id}`).subscribe({
+      next: (response) => {
+        console.log("Cancellazione completata:", response);
+        this.listaStudenti = response;
+        this.cd.detectChanges();
+      },
+      error: (err) => {
+         console.error("errore durante la rimozione", err);
+      }
+  })
+}
+
+}
+
 
 }

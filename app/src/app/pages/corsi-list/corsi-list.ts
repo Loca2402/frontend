@@ -73,10 +73,30 @@ export class CorsiListComponent implements OnInit {
       }
     });
   }
+
+  eliminaCorso(idCorso: number): void {
+  if (confirm("Eliminare la riga selezionata?")) {
+    this.http.delete<any>(`http://localhost:8080/api/corsi/${idCorso}`).subscribe({
+      next: (response) => {
+        console.log("Cancellazione completata:", response);
+        this.listaCorsi = response;
+        this.cd.detectChanges();
+      },
+      error: (err) => {
+         console.error("errore durante la rimozione", err);
+      }
+  })
+}
+
+}
+
+
   resetFiltri(): void {
     this.filtri = { nome: '', tipoTitolo: '', annoAccademico: '' };
     this.eseguiRicerca();
   }
+
+
 
 
 }

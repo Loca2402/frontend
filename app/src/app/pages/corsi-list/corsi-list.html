@@ -47,6 +47,7 @@
             <th>Anno Accademico</th>
             <th>Tipo Titolo</th>
             <th>Dipartimento</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -59,6 +60,9 @@
                 <td class="code-badge"><span>{{corso.annoAccademico}}</span></td>
                 <td class="main-text">{{corso.tipoTitolo}}</td>
                 <td class="main-text">{{corso.nomeDipartimento}}</td>
+                 <td>
+                <button type="button" (click)="eliminaCorso(corso.idCorso)" class="btn-delete"> Elimina </button>
+                </td>
             </tr>
         } @empty {
             <tr>

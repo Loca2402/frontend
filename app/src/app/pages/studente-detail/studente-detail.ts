@@ -18,6 +18,7 @@ export class StudenteDetailComponent implements OnInit {
   mostraBarraRicerca: boolean = false; 
   
   statoSelezionato: string = '';
+  mostraConferma: boolean = false;
 
   filtri = {
     idCorso: '',
@@ -112,10 +113,15 @@ export class StudenteDetailComponent implements OnInit {
     const idIscrizione = this.listaIscrizioni[0].id;
     const payload = { stato: this.statoSelezionato };
 
-    this.http.patch<any>(`http://localhost:8080/api/iscrizioni/${idIscrizione}/stato`, payload).subscribe({
+    this.http.patch(`http://localhost:8080/api/iscrizioni/${idIscrizione}/stato`, null, {
+      params:{
+        stato:this.statoSelezionato
+      }
+    }).subscribe({
       next: (response) => {
         console.log("modifica completata:", response);
         this.statoSelezionato = '';
+        this.mostraConferma = true;
         if (this.studente) {
           this.caricaIscrizioneStudente(this.studente.id);
         }
